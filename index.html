@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เว็บแรกของฉัน</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 60px; background: #f4f6fb; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    #result { margin-top: 20px; color: #2b6cb0; }
+  </style>
+</head>
+<body>
+  <h1>🚀 สวัสดี! เว็บนี้อยู่บน Vercel</h1>
+  <p>ใครก็เข้าได้ผ่านอินเทอร์เน็ต</p>
+  <button onclick="callApi()">เรียก API หลังบ้าน</button>
+  <div id="result"></div>
+
+  <script>
+    async function callApi() {
+      const res = await fetch('/api/hello');
+      const data = await res.json();
+      document.getElementById('result').innerText = data.message + ' (' + data.time + ')';
+    }
+  </script>
+</body>
+</html>
